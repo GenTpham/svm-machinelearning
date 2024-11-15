@@ -13,7 +13,7 @@ with st.expander('Data'):
 
   st.write('**X**')
   df = df.drop('ID', axis = 1)
-  X_raw = df.drop('Class')
+  X_raw = df.drop('Class', axis = 1)
   X_raw
 
   st.write('**y**')
