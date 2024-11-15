@@ -41,8 +41,9 @@ with st.expander('Input features'):
 
 # Prepare data for modeling
 scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X_raw)
-input_scaled = scaler.transform(input_df)
+# Convert DataFrame to numpy array before scaling
+X_scaled = scaler.fit_transform(X_raw.values)
+input_scaled = scaler.transform(input_df.values)
 
 # Train model and make predictions
 clf = SVC(probability=True)
