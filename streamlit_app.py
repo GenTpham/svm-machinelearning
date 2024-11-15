@@ -17,8 +17,8 @@ with st.expander('Data'):
   X_raw
 
   st.write('**y**')
-  y_raw = df.Class
-  y_raw
+  y = df.Class
+  y
 
 with st.sidebar:
   st.header('Input fearures')
@@ -50,3 +50,17 @@ with st.expander('Input features'):
   input_df
   st.write('**Combined cancer data**')
   input_cancer
+
+X = input_cancer[1:]
+input_row = input_cancer[:1]
+
+clf = SVC()
+clf.fit(X, y)
+
+prediction = clf.predict(input_row)
+prediction_proba = clf.predict_proba(input_row)
+
+df_prediction_proba = pd.DataFrameprediction_proba)
+df_prediction_proba.columns = ['benign', 'malignant']
+df_prediction_proba.rename(columns = {'benign': 2,
+                                     'malignant': 4})
