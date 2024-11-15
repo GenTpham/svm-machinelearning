@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 
 st.title('👨‍⚕️ Machine Learning App')
@@ -53,7 +54,8 @@ with st.expander('Input features'):
 
 X = input_cancer[1:]
 input_row = input_cancer[:1]
-
+std = StandardScaler()
+X = std.fit_transform(X)
 clf = SVC()
 clf.fit(X, y)
 
