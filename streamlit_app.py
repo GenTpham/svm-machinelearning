@@ -11,3 +11,11 @@ with st.expander('Data'):
   df = pd.read_csv('https://raw.githubusercontent.com/GenTpham/RandomForest/refs/heads/main/cancer.csv')
   df
 
+  st.write('**X**')
+  df = df.drop('ID', axis = 1)
+  X_raw = df.drop('Class')
+  X_raw
+
+  st.write('**y**')
+  y_raw = df.Class
+  y_raw
