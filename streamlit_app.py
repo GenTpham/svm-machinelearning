@@ -60,7 +60,7 @@ clf.fit(X, y)
 prediction = clf.predict(input_row)
 prediction_proba = clf.predict_proba(input_row)
 
-df_prediction_proba = pd.DataFrameprediction_proba)
+df_prediction_proba = pd.DataFrame(prediction_proba)
 df_prediction_proba.columns = ['benign', 'malignant']
 df_prediction_proba.rename(columns = {'benign': 2,
                                      'malignant': 4})
